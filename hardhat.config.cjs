@@ -1,0 +1,2 @@
+require('@nomicfoundation/hardhat-toolbox');
+module.exports={solidity:{version:'0.8.24',settings:{optimizer:{enabled:true,runs:200}}},networks:{arcTestnet:{url:'https://rpc.testnet.arc.io',chainId:5042002,accounts:process.env.DEPLOYER_PRIVATE_KEY?[process.env.DEPLOYER_PRIVATE_KEY]:[]},arcMainnet:{url:'https://rpc.mainnet.arc.io',chainId:5042,accounts:process.env.DEPLOYER_PRIVATE_KEY?[process.env.DEPLOYER_PRIVATE_KEY]:[]}}};
