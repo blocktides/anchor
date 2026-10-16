@@ -1,48 +1,100 @@
-# Anchor ⚓ — Verified Work. Verifiable Pay.
+# ⚓ ANCHOR
 
-An independently developed Block Tides project for Arc Studio microgrants. Anchor connects funded work, reviewer approval, onchain USDC settlement, and contribution receipts.
+### Verified Work. Verifiable Pay.
 
-## Current state
+**Meaningful contributions deserve recognition. Great work deserves fair compensation.**
 
-**Starter implementation, not deployed or audited.** This repo includes a React/Vite frontend, Solidity escrow contract and a starter Hardhat test suite. The interface operates in clearly marked demo mode until a deployed Arc contract address is configured. No real transactions have been completed through this code yet.
+Anchor is an onchain contribution and rewards platform by [Block Tides](https://blocktides.com), developed for the Arc ecosystem.
 
-## Local development
+We are building a more transparent way for organizations to fund work, verify completed contributions, and distribute USDC payments with verifiable records.
+
+---
+
+## The Vision
+
+The internet runs on contributors.
+
+Researchers, developers, educators, creators, and community builders continuously create value, yet proving their contributions and receiving fair compensation remain fragmented across platforms.
+
+**Anchor connects the work, the verification, and the payment.**
+
+Our vision is a contribution economy where people are recognized for what they build and deliver, regardless of audience size, background, or location.
+
+## How Anchor Works
+
+| Step | Action |
+|---|---|
+| 01 — Fund | Organizations publish opportunities with transparent USDC rewards. |
+| 02 — Contribute | Contributors complete tasks and submit proof of work. |
+| 03 — Verify | Authorized reviewers evaluate deliverables against published criteria. |
+| 04 — Settle | Approved work triggers USDC settlement through smart contracts. |
+| 05 — Record | Anchor Receipts connect verified contributions with their payment transactions. |
+
+## Anchor Receipts
+
+**Your work deserves more than a transaction history.**
+
+Anchor Receipts are designed to provide verifiable records connecting:
+
+- Contributor wallet identity
+- Submitted work and evidence
+- Authorized approval
+- USDC compensation
+- Onchain transaction reference
+
+Our long-term objective is to make verified contribution records more portable and useful across digital ecosystems.
+
+## Built for Contributors
+
+**Research & Intelligence · Open-Source Development · Education · Content Creation · Community Building**
+
+Anchor focuses on meaningful deliverables, transparent review criteria, and accountable compensation rather than follower counts or referral quotas.
+
+## Technology
+
+| Layer | Technology |
+|---|---|
+| Network | Arc |
+| Settlement | USDC |
+| Smart Contracts | Solidity |
+| Frontend | React + Vite |
+| Wallet Integration | ethers.js |
+| Contract Development | Hardhat + OpenZeppelin |
+
+## Development
+
+Anchor is currently under active development as an Arc Studio microgrant project.
+
+The initial milestone is a working application supporting funded contributions, submission review, USDC settlement, and verifiable contribution receipts.
+
+A verified mainnet deployment and real-USDC payout have not yet been completed.
+
+### Getting Started
+
+Once the frontend and contract source files are uploaded:
 
 ```bash
 npm install
 npm run dev
 ```
 
-Copy `.env.example` to `.env` and set `VITE_ANCHOR_CONTRACT` only after deploying and validating the contract. The UI switches to live contract mode when a deployed contract is supplied. Add an EVM wallet that supports Arc.
-
-## Contracts and tests
+### Contract Testing
 
 ```bash
 npx hardhat compile
 npm test
 ```
 
-Arc mainnet: chain ID 5042; RPC `https://rpc.mainnet.arc.io`; explorer `https://explorer.arc.io`. Arc gas is native USDC (18 decimals), whereas the USDC ERC-20 token interface at `0x3600000000000000000000000000000000000000` uses **6 decimals**. Never confuse these amounts.
+The current escrow implementation is experimental and has not undergone an independent security audit. Dispute handling, refunds, and additional security testing are required before production use.
 
-**Before deploying to mainnet**: import contracts into **Arc Studio** and actually use Arc Studio to write/test/build the deployment version, as required by the competition. Run thorough automated and manual testing on Arc testnet; review the escrow's stalled-dispute limitations; secure credentials and conduct an independent code review. Limit demonstration funds.
+---
 
-## Known limitations
+### The Bigger Picture
 
-- Each bounty supports one claimant and one payment.
-- Claimed tasks cannot be refunded or reassigned through this contract, and disputes have no onchain resolution. This is a material blocker for production usage.
-- Work descriptions and receipt URLs are only represented as hashes. Store the original content separately and make it retrievable for independently verifiable receipts.
-- Frontend currently displays onchain bounty IDs and hashes; it does not resolve offchain task titles or full evidence content from a production index.
-- Frontend uses an injected browser wallet and assumes its availability for chain reads.
-- `VITE_*` vars are public; never put any keys or secrets in them.
-- Do not treat a demo state or sample receipt as evidence of a mainnet payout.
+We envision Anchor becoming an infrastructure layer for transparent contributions and compensation, supporting creators, communities, organizations, open-source initiatives, and emerging ecosystems.
 
-## DoraHacks submission evidence still needed
+**Anchor — Verified Work. Verifiable Pay.**
 
-- Arc Studio project link and evidence of its actual use
-- Public GitHub repository
-- Publicly deployed functioning app
-- Deployed Arc Mainnet contract address
-- Real USDC payout transaction hash and explorer link
-- Demonstration video showing the successful payout
+Developed by [Block Tides](https://blocktides.com).
 
-© Block Tides. Project prototype. No independent security audit.
+© 2026 Block Tides. All rights reserved.
