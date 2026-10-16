@@ -1,0 +1,36 @@
+
+name: Anchor Build & Tests
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Checkout Anchor
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Install dependencies
+        run: npm install --no-audit --no-fund
+
+      - name: Compile smart contracts
+        run: npx hardhat compile
+
+      - name: Run contract tests
+        run: npm test
+
+      - name: Build frontend
+        run: npm run build
